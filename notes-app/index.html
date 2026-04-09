@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Офлайн Заметки | Практика №13</title>
+    <link rel="stylesheet" href="https://unpkg.com/chota@latest" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#4CAF50" />
+  </head>
+  <body>
+    <div
+      class="container"
+      style="max-width: 800px; margin: 0 auto; padding: 20px"
+    >
+      <h1>📝 Офлайн Заметки</h1>
+      <p style="color: #666">Работает даже без интернета!</p>
+
+      <!-- Индикатор статуса -->
+      <div
+        id="status"
+        style="
+          background: #e8f5e9;
+          padding: 10px;
+          border-radius: 8px;
+          margin-bottom: 20px;
+        "
+      >
+        ✅ Приложение готово к работе
+      </div>
+
+      <!-- Форма добавления -->
+      <form id="note-form" class="row">
+        <input
+          class="col-9"
+          type="text"
+          id="note-input"
+          placeholder="Введите новую заметку..."
+          required
+        />
+        <button
+          class="col-3"
+          type="submit"
+          style="background: #4caf50; color: white; border: none"
+        >
+          ➕ Добавить
+        </button>
+      </form>
+
+      <!-- Список заметок -->
+      <h3>Мои заметки</h3>
+      <ul id="notes-list" style="list-style: none; padding: 0"></ul>
+
+      <!-- Кнопка очистки -->
+      <button
+        id="clear-btn"
+        style="
+          background: #f44336;
+          color: white;
+          border: none;
+          margin-top: 10px;
+        "
+      >
+        🗑️ Очистить все заметки
+      </button>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
