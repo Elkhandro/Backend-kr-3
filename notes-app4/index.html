@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="manifest" href="manifest.json" />
+
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <meta name="theme-color" content="#4285f4" />
+
+    <link rel="apple-touch-icon" href="icons/icon-192.png" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+
+    <title>Заметки (13-18)</title>
+
+    <!-- CSS-фреймворк chota для стилей -->
+    <link rel="stylesheet" href="https://unpkg.com/chota@latest" />
+
+    <link rel="icon" href="icons/favicon.ico" type="image/ico" />
+
+    <style>
+      body {
+        padding: 1rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      header {
+        margin-bottom: 1.5rem;
+      }
+      .tabs {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+      .tab {
+        flex: 1;
+        cursor: pointer;
+      }
+      .tab.active {
+        background: #4285f4;
+        color: white;
+        border-color: #4285f4;
+      }
+      footer {
+        margin-top: 2rem;
+        padding: 1rem 0;
+        border-top: 1px solid #eee;
+        text-align: center;
+      }
+      #toast {
+        display: none;
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        background: #4285f4;
+        color: white;
+        padding: 0.8rem 1.2rem;
+        border-radius: 8px;
+        z-index: 9999;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ===== APP SHELL (каркас — кэшируется, грузится мгновенно) ===== -->
+    <header>
+      <h1>📝 Заметки — офлайн-приложение</h1>
+      <nav class="tabs">
+        <button id="home-btn" class="button tab active">Главная</button>
+      </nav>
+    </header>
+
+    <!-- Сюда динамически грузится контент (Практика 15 — App Shell) -->
+    <main id="app-content" class="container">
+      <p>Загрузка...</p>
+    </main>
+
+    <!-- Кнопки управления push-уведомлениями (Практика 16) -->
+    <footer>
+      <button id="enable-push" class="button success">
+        🔔 Включить уведомления
+      </button>
+      <button id="disable-push" class="button error" style="display: none">
+        🔕 Отключить уведомления
+      </button>
+    </footer>
+
+    <!-- Всплывающее уведомление WebSocket (Практика 16) -->
+    <div id="toast"></div>
+
+    <!-- Практика 16: библиотека Socket.IO -->
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

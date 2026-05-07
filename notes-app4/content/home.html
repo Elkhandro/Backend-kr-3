@@ -1,0 +1,19 @@
+<div class="home-content">
+  <h2>Добавить заметку</h2>
+
+  <!-- Обычная заметка (Практика 13) -->
+  <form id="note-form" class="row" style="gap:0.5rem; margin-bottom:1rem;">
+    <input class="col-9" type="text" id="note-input" placeholder="Введите текст заметки" required>
+    <button class="col-3 button primary" type="submit">Добавить</button>
+  </form>
+
+  <!-- Заметка с напоминанием (Практика 17) -->
+  <form id="reminder-form" class="row" style="gap:0.5rem;">
+    <input class="col-5" type="text" id="reminder-text" placeholder="Текст напоминания" required>
+    <input class="col-4" type="datetime-local" id="reminder-time" required>
+    <button class="col-3 button success" type="submit">⏰ + Напоминание</button>
+  </form>
+
+  <h2 style="margin-top: 2rem;">Список заметок</h2>
+  <ul id="notes-list" style="list-style: none; padding-left: 0;"></ul>
+</div>
